@@ -135,6 +135,54 @@ src/
 
 * Fetches a single product by ID using `useParams`.
 * Displays product title, price, and image.
+* 
+
+
+### ➤ Search & Sort Features (Using filter() & sort() Methods)
+In the ProductList.jsx file, I added real-time search and sort functionality to give users a smooth e-commerce experience.
+
+### ➤ ✅ filter() – For Live Search Bar
+js
+Copy
+Edit
+const Filterproducts = products.filter((items) =>
+  items.title.toLowerCase().includes(searchtext.toLowerCase())
+);
+🔎 What’s happening here?
+
+products is our full product list from the API.
+
+The filter() method loops through every product.
+
+We check: does the title of the product include the search text typed by the user?
+
+We use toLowerCase() so it works even if the user uses capital letters.
+
+💡 Example: If I type shoes, it will show only the products whose title includes "shoes".
+
+### ➤ 🔃 sort() – For High to Low & Low to High Price Sorting
+js
+Copy
+Edit
+if (sorted === 'high') {
+  Filterproducts.sort((a, b) => b.price - a.price); // Highest price first
+} else if (sorted === 'low') {
+  Filterproducts.sort((a, b) => a.price - b.price); // Lowest price first
+}
+💡 Why?
+
+Sometimes the user wants to see:
+
+💰 Expensive products first → "High to Low"
+
+💸 Cheaper products first → "Low to High"
+
+So, using sort(), we rearrange the products based on their price.
+
+🎯 Final Thoughts
+These tiny features might look small, but they are super important in real-world apps. They make the app feel interactive, smart, and user-friendly. I’m proud I wrote this logic with my own hands 💪
+
+
 
 ---
 
